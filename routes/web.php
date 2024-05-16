@@ -8,15 +8,13 @@
 # de otras librerias que podriamos tener en el mismo directorio.
 use Lib\Route;
 
+# Importar controladores
+use App\Controllers\HomeController;
+
 # Estas son las rutas.
 # Observa como se ejecutan.
 
-Route::get('/', function (){
-    return [
-        'title' => "pagina principal",
-        'text' => 'hola desde la pag principal'
-    ];
-});
+Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/contact', function () {
     return 'Contacto';
@@ -25,7 +23,6 @@ Route::get('/contact', function () {
 Route::get('/about', function () {
     return 'Acerca de';
 });
-
 
 Route::get('/courses/:slug', function($slug){
     return "El curso es: ". $slug;

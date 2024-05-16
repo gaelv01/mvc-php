@@ -112,7 +112,14 @@ class Route
                 # Los ... indican que el arreglo de $params, sera dividido en 
                 # varias variables.
                 # Necesitamos una respuesta para mandarla a llamar.
-                $response = $callback(...$params);
+                // $response = $callback(...$params);
+                if(is_callable($callback)) {
+                    $response = $callback(...$params);
+                }
+                if(is_array($callback)) {
+                    $controller = new $callback[0];
+                    $response = $controller->{$callback[1]}(...$params);
+                }
 
 
                 # Como no podemos imprimir un arreglo (pues $response puede serlo),
