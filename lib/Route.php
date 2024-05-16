@@ -87,11 +87,6 @@ class Route
                 $route = preg_replace('#:[a-zA-Z]+#', '([a-zA-Z]+)', $route);
             }
 
-            # TODO: recuperar el valor de los parametros.
-            # El siguiente video:
-            # https://www.youtube.com/watch?v=ALUM0JLcZrU&list=PLZ2ovOgdI-kWShYbJSN5RiLzpQEm0nEVx&index=7
-            # explica como hacerlo, en el minuto 23:35.
-
             # Si el metodo es exactamente igual a la URI, entonces
             # ejecutamos la funcion que se encuentra en el arreglo, $callback!
 
@@ -103,9 +98,38 @@ class Route
             # Esta expresion (Regex) dice lo siguiente: que encuentre el contenido de $route (#$route#),
             # pero que sea de inicio (^) a fin ($).
 
-            if(preg_match("#^$route$#", $uri)) {
-                # Si existe, lo logramos!
-                $callback();
+            # La variable $matches nos permite recuperar los diversos parametros que hayamos escrito 
+            # en la barra de direcciones.
+            # Con $params, generalizamos estos parámetros.
+            
+            if(preg_match("#^$route$#", $uri, $matches)) { # Si existe, lo logramos!
+                
+                # $params guarda todos los parametros separados en un array.
+                # Usando array_slice, ponemos $matches y colocamos un 1 para que comience
+                # directamente en los parametros.
+                $params = array_slice($matches, 1);
+
+                # Los ... indican que el arreglo de $params, sera dividido en 
+                # varias variables.
+                # Necesitamos una respuesta para mandarla a llamar.
+                $response = $callback(...$params);
+
+
+                # Como no podemos imprimir un arreglo (pues $response puede serlo),
+                # evaluamos lo siguiente.
+
+                # Si la respuesta es un arreglo o un objeto, que lo imprima a json.
+                if (is_array($response) || is_object($response))
+                {
+                    header('Content-Type: application/json');
+                    echo json_encode($response);
+                }
+                else 
+                {
+                    # De lo contrario, imprime solo la respuesta.
+                    echo $response;
+                } 
+               
                 # Salimos del ciclo. Logramos lo cometido.
                 return;
             }
