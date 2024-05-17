@@ -5,6 +5,8 @@
 # para organizar la aplicacion.
 # Ves el archivo .htaccess?  Es el encargado de redirigir todas las peticiones a este index.php
 
+# Importamos el archivo de configuracion de la base de datos.
+require_once '../config/database.php';
 # Importamos el autocargador. 
 require_once '../autoload.php';
 # Importamos el archivo de rutas.
