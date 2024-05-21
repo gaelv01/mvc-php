@@ -10,11 +10,12 @@ use Lib\Route;
 
 # Importar controladores
 use App\Controllers\HomeController;
+use App\Controllers\AlumnoController;
 
 # Estas son las rutas.
 # Observa como se ejecutan.
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [AlumnoController::class, 'index']);
 
 Route::get('/contact', function () {
     return 'Contacto';
