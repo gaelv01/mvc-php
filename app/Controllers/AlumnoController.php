@@ -6,11 +6,50 @@ class AlumnoController extends Controller
 {
     public function index()
     {
-        $alumnoModel = new Alumno();
-        return $alumnoModel->all();
-        // return $this->view('home', [
-        //     'title' => 'Alumnos',
-        //     'description' => 'Esta es la pagina de alumnos',
-        // ]);
+        $model = new Alumno();
+        $alumnos = $model->all();
+        return $this->view('alumnos.index', compact('alumnos'));
     }
+    public function create()
+    {
+        return $this->view('alumnos.create');
+    }
+    public function store()
+    {
+        // Retornar parámetros de la petición
+        $data = $_POST;
+        $model = new Alumno();
+        $model->create($data);
+        return $this->redirect('/alumnos');
+    }
+    public function show($id)
+    {
+        $model = new Alumno(); 
+        $alumno = $model->find($id);
+        return $this->view('alumnos.show', compact('alumno'));
+    }
+    public function edit($id)
+    {
+        $model = new Alumno();
+        $alumno = $model->find($id);
+        return $this->view('alumnos.edit', compact('alumno'));
+    }
+    public function update($id)
+    {
+        unset($_POST['_method']);
+        $data = $_POST;
+        $model = new Alumno();
+        $model->update($id, $data);
+        return $this->redirect('/alumnos/'.$id);
+        
+    }
+    public function destroy($id)
+    {
+        $model = new Alumno();
+        $model->delete($id);
+        return $this->redirect('/alumnos');
+    }
+
+
 }
+

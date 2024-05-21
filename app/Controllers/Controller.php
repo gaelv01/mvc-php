@@ -42,4 +42,9 @@ class Controller
             return "No se encontró la vista";
         }
     }
+
+    public function redirect($route)
+    {
+        header("Location: $route");
+    }
 }

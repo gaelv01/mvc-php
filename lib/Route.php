@@ -84,7 +84,7 @@ class Route
             # '[a-zA-Z]+ sera la transformacion de la ruta, ya sin los dos puntos.
 
             if(strpos($route, ':') !== false) {
-                $route = preg_replace('#:[a-zA-Z]+#', '([a-zA-Z]+)', $route);
+                $route = preg_replace('#:[a-zA-Z]+#', '([a-zA-Z0-9]+)', $route);
             }
 
             # Si el metodo es exactamente igual a la URI, entonces
