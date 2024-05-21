@@ -19,8 +19,13 @@ class HomeController extends Controller
     {
         # Creamos un nuevo objeto de la clase Contact
         $contactModel = new Contact();
-        return $contactModel->query("SELECT * FROM contacts")->getAll();
-        // return $this->view('home', [
+        $contactModel->delete(1004);
+        return "eliminado";
+
+
+
+
+                // return $this->view('home', [
         //     'title' => 'Inicio',
         //     'description' => 'Esta es la pagina de inicio'
         // ]);
