@@ -17,12 +17,13 @@ class HomeController extends Controller
      */
     public function index()
     {
+        # Creamos un nuevo objeto de la clase Contact
         $contactModel = new Contact();
-        
-        return $this->view('home', [
-            'title' => 'Inicio',
-            'description' => 'Esta es la pagina de inicio'
-        ]);
+        return $contactModel->query("SELECT * FROM contacts")->getAll();
+        // return $this->view('home', [
+        //     'title' => 'Inicio',
+        //     'description' => 'Esta es la pagina de inicio'
+        // ]);
     }
 
 
