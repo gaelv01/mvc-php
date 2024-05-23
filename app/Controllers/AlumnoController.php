@@ -7,7 +7,7 @@ class AlumnoController extends Controller
     public function index()
     {
         $model = new Alumno();
-        $alumnos = $model->all();
+        $alumnos = $model->paginate(3);
         return $this->view('alumnos.index', compact('alumnos'));
     }
     public function create()

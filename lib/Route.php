@@ -60,6 +60,10 @@ class Route
         # Ajustamos la URI sin / al principio o al final.
         $uri = trim($uri, '/');
 
+        if(strpos($uri, '?')) {
+            $uri = substr($uri, 0, strpos($uri, '?'));
+        }
+
         # Obtenemos el metodo HTTP (GET o POST) que se ha usado para hacer la peticion.
         $method = $_SERVER['REQUEST_METHOD'];
 
