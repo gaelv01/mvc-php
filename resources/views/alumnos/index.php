@@ -10,36 +10,46 @@
 </head>
 
 <body>
-    <h1 class="text-2xl font-bold mb-2">Listado de alumnos</h1>
+    <div class="container mx-auto">
+        <h1 class="text-2xl font-bold mb-2">Listado de alumnos</h1>
 
-    <a href="/alumnos/create" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Crear alumno</a>
 
-    <table>
-        <tr>
-            <th>Nombre</th>
-            <th>Apellidos</th>
-            <th>Fecha de nacimiento</th>
-            <th>Semestre</th>
-            <th>Carrera</th>
-            <th>Grupo</th>
-        </tr>
-        <?php foreach ($alumnos['data'] as $alumno) : ?>
+        <form action="/alumnos" method="get">
+            <input type="text" name="search" class="bg-white-500 border-2 border-gray-300 rounded-lg p-2 mb-3" placeholder="Buscar...">
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Buscar</button>
+        </form>
+
+        <a href="/alumnos/create" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Crear alumno</a>
+
+        <table>
             <tr>
-                <td><a href="/alumnos/<?= $alumno['ID'] ?>" class="text-blue-500 hover:text-blue-700"><?= $alumno['Nombre'] ?></a></td>
-                <td><?= $alumno['Apellidos'] ?></td>
-                <td><?= $alumno['Fecha_Nacimiento'] ?></td>
-                <td><?= $alumno['Semestre'] ?></td>
-                <td><?= $alumno['Carrera'] ?></td>
-                <td><?= $alumno['IdGrupo'] ?></td>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Fecha de nacimiento</th>
+                <th>Semestre</th>
+                <th>Carrera</th>
+                <th>Grupo</th>
             </tr>
-        <?php endforeach; ?>
-    </table>
+            <?php foreach ($alumnos['data'] as $alumno) : ?>
+                <tr>
+                    <td><a href="/alumnos/<?= $alumno['ID'] ?>" class="text-blue-500 hover:text-blue-700"><?= $alumno['Nombre'] ?></a></td>
+                    <td><?= $alumno['Apellidos'] ?></td>
+                    <td><?= $alumno['Fecha_Nacimiento'] ?></td>
+                    <td><?= $alumno['Semestre'] ?></td>
+                    <td><?= $alumno['Carrera'] ?></td>
+                    <td><?= $alumno['IdGrupo'] ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </table>
 
 
-    <?php 
-    $paginate = 'alumnos';
-    require_once '../resources/views/assets/pagination.php'; 
-    ?>
+        <?php
+        $paginate = 'alumnos';
+        require_once '../resources/views/assets/pagination.php';
+        ?>
+
+    </div>
+
 
 </body>
 

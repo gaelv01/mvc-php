@@ -7,7 +7,13 @@ class AlumnoController extends Controller
     public function index()
     {
         $model = new Alumno();
-        $alumnos = $model->paginate(3);
+
+        if (isset($_GET['search'])) {
+            $alumnos = $model->where('Nombre', 'like', '%'.$_GET['search'].'%')->paginate(1);
+        }
+        else {
+            $alumnos = $model->paginate(3);
+        }
         return $this->view('alumnos.index', compact('alumnos'));
     }
     public function create()
