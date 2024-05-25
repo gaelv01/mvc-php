@@ -6,6 +6,8 @@
 
 # Usamos un namespace (definido en Route.php) para segmentar esta libreria
 # de otras librerias que podriamos tener en el mismo directorio.
+
+use App\Controllers\AdminController;
 use Lib\Route;
 
 # Importar controladores
@@ -16,6 +18,12 @@ use App\Controllers\AlumnoController;
 # Observa como se ejecutan.
 
 Route::get('/', [HomeController::class, 'index']);
+
+
+Route::get('/admin/add', [AdminController::class, 'add']);
+Route::get('/admin/delete', [AdminController::class, 'delete']);
+Route::get('/admin/show', [AdminController::class, 'show']);
+Route::get('/admin/modify', [AdminController::class, 'modify']);
 
 Route::get('/alumnos', [AlumnoController::class, 'index']);
 Route::get('/alumnos/create', [AlumnoController::class, 'create']);
