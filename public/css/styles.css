@@ -1,0 +1,835 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight&display=swap');
+
+:root {
+    --tipografia: "Inter Tight", sans-serif;
+
+    /* Tamaños */
+    --tamano-cuart: 4px;
+    --tamano-med: 8px;
+    --tamano-1: 16px;
+    --tamano-2: 32px;
+    --tamano-3: 48px;
+    --tamano-4: 64px;
+
+
+    /* Tiempos */
+    --tiempo-normal: 0.3s;
+
+
+    /* Colores generales */
+    --blanco: #FFFFFF;
+    --negro: #000000;
+    --gris-aaa: #AAAAAA;
+    --gris-bbb: #BBBBBB;
+    --gris-ccc: #CCCCCC;
+    --gris-ddd: #DDDDDD;
+    --gris-eee: #EEEEEE;
+    --blanco-antiguo: rgb(250, 235, 215);
+
+    --azul-primario: #0089f1;
+    --azul-claro: #6eb9f3;
+
+    --rojo-claro: rgb(230, 182, 182);
+    --verde-claro: rgb(146, 226, 146);
+    
+
+
+    
+
+    /* Colores semánticos */
+    --ok-primario: rgb(0,128,0);
+    --ok-claro: rgb(81, 156, 81);
+    --error-primario: rgb(216, 50, 50);
+    --error-claro: rgb(255, 121, 121);
+    --advertencia-primario: rgb(243, 187, 21);
+    --advertencia-claro: rgb(240, 210, 121);
+    
+
+    /* Bordes */
+
+    --borde-normal: 1px solid var(--negro);
+    --borde-grueso: 4px solid var(--negro);
+    
+}
+
+* {
+    font-family: var(--tipografia);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/*FONDO TEMPORAL*/
+body{
+    background-color: black !important;
+}
+
+
+/* index.php */
+
+
+/* Login Card */
+.login-card {
+    width: 450px;
+    background: rgba(255, 255, 255, 1);
+    padding: 4rem;
+    border-radius: 10px;
+    position: relative;
+    height: fit-content;
+
+
+}
+
+
+table i {
+    padding-right: var(--tamano-cuart);
+    height: 100%;
+}
+
+
+/* Login Card Logo */
+.login-card-logo {
+    margin-bottom: 2rem;
+}
+
+.login-card-logo img {
+    width: 200px;
+}
+/* ---------- */
+
+/* Login Card Standard */
+.login-card-logo,
+.login-card-header,
+.login-card-footer {
+    text-align: center;
+}
+
+.login-card a {
+    text-decoration: none;
+    color: #35339a;
+}
+
+.login-card a:hover {
+    text-decoration: underline;
+}
+/* ---------- */
+
+/* Login Card Header */
+.login-card-header {
+    margin-bottom: 2rem;
+}
+
+.login-card-header h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: .5rem;
+}
+
+.login-card-header h1+div {
+    font-size: calc(1rem * .8);
+    opacity: .8;
+}
+/* ---------- */
+
+/* Login Card Form */
+.login-card-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.login-card-form .form-item {
+    position: relative;
+}
+
+.login-card-form .form-item .form-item-icon {
+    position: absolute;
+    top: .82rem;
+    left: 1.4rem;
+    font-size: 1.3rem;
+    opacity: .4;
+}
+
+.login-card-form .checkbox {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.login-card-form .form-item-other {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: calc(1rem * .8);
+    margin-bottom: .5rem;
+}
+/* ---------- */
+
+/* Login Card Footer */
+.login-card-footer {
+    margin-top: 1.5rem;
+    font-size: calc(1rem * .8);
+}
+/* ---------- */
+
+/* Login Card Form Elements */
+.login-card input[type="text"],
+.login-card input[type="password"],
+.login-card input[type="email"] {
+    border: none;
+    outline: none;
+    background: rgba(255, 255, 255, .3);
+    border: var(--borde-normal);
+    padding: 1rem 1.5rem;
+    padding-left: calc(1rem * 3.5);
+    border-radius: 100px;
+    width: 100%;
+    transition: background .5s;
+}
+
+.login-card input:focus {
+    background: rgba(255, 255, 255, .5);
+}
+
+.login-card button {
+    background: black;
+    color: white;
+    padding: 1rem;
+    border-radius: 100px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: background .5s;
+}
+
+.login-card button:hover {
+    background-color: rgba(0, 0, 0, 0.85);
+    cursor: pointer;
+}
+/* ---------- */
+
+
+
+/*temporal*/
+
+.contenedorPrincipal {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+
+}
+
+.header, .main{
+    padding: var(--tamano-1);
+    
+}
+
+.header {
+    background-color: var(--blanco);
+    flex-basis: var(--tamano-4);
+
+    display: flex;
+    align-items: center;
+
+    gap: var(--tamano-1)
+}
+
+.header_img {
+    width: var(--tamano-3);
+}
+
+.header_p {
+    margin: 0px;
+    font-size: var(--tamano-1);
+}
+
+#tiempo {
+    padding: var(--tamano-1);
+    background-color: var(--azul-claro);
+    border-radius: var(--tamano-1);
+}
+
+.tipo_usuario {
+    padding: var(--tamano-1);
+    background-color: var(--error-claro);
+    border-radius: var(--tamano-1);
+    display: flex;
+    align-items: center;
+    gap: var(--tamano-cuart);
+}
+
+.main {
+    flex-basis: 500px;
+    flex-grow: 2;
+    flex-shrink: 0;
+
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    background-image: url(/contenidos/imagenes/fondos/fondo3.jpg);
+    background-size: cover;
+    gap: var(--tamano-med);
+
+}
+
+/* Derivado de main, para que se pueda estilizar como sea necesario */
+.--default {
+    display: flex;
+    justify-content: start;
+}
+
+.--centered {
+    align-items: center;
+}
+
+  
+.footer {
+    background-color: var(--blanco);
+    flex-basis: calc(var(--tamano-1) + var(--tamano-med));
+    display: flex;
+    align-items: center;
+
+    padding: var(--tamano-med);
+
+    gap: var(--tamano-1)
+}
+
+
+.mensaje {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: var(--tamano-med);
+    color: var(--blanco);
+    padding: var(--tamano-1);
+    border-radius: var(--tamano-1);
+    font-family: var(--tipografia);
+    transition: var(--tiempo-normal);
+
+    height: 50%;
+    width: 50%;
+    text-align: center;
+}
+
+.mensaje i {
+    font-size: var(--tamano-2);;
+    margin-right: var(--tamano-med);
+    }
+  
+.mensaje p{
+    font-size: var(--tamano-2);
+}
+
+.--salida, .--correcto {
+    background-color: var(--ok-claro);
+}
+.--error {
+    background-color: var(--error-claro);
+}
+
+
+
+
+.mensaje-error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: var(--error-primario);
+    color: var(--blanco);
+    padding: var(--tamano-1);
+    border-radius: var(--tamano-1);
+
+    height: 50%;
+    width: 50%;
+
+  }
+  
+  .mensaje-error i {
+    font-size: var(--tamano-2);;
+    margin-right: var(--tamano-med);
+  }
+  
+  .mensaje-texto {
+    font-size: var(--tamano-2);
+  }
+
+  .menu {
+    width: 15%;
+    height: 100%;
+    background-color: transparent;
+    font-family: var(--tipografia);
+    margin-right: var(--tamano-1);
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column; 
+    overflow-y: scroll;
+
+    }
+
+
+.menu__lista-princ {
+    
+    list-style: none;
+    line-height: var(--tamano-1);
+    width: 15%;
+    height: fit-content;
+    background-color: var(--blanco);
+    border-radius: var(--tamano-1);
+    font-family: var(--tipografia);
+}
+
+.menu__img{
+    margin-left: var(--tamano-cuart);
+    width: var(--tamano-1);
+}
+
+.menu__opcion{
+    padding: var(--tamano-cuart);
+}
+
+.menu__link{
+    box-sizing: border-box;
+    color: var(--negro);
+    background: transparent;
+    display: block;
+    width: 100%;
+    padding: var(--tamano-med) var(--tamano-1);
+    text-decoration: none;
+
+    transition: var(--tiempo-normal);
+}
+
+.menu__link:hover{
+    background: var(--gris-aaa);
+    /* border-radius: var(--tamano-1); */
+}
+
+.submenu__opcion {
+    height: 0px;
+    overflow: hidden;
+    transition: var(--tiempo-normal);
+}
+
+.menu__opcion:hover .submenu__opcion{
+    height: var(--tamano-2);
+}
+
+.submenu__opcion .menu__link{
+    background: var(--gris-ddd);
+    margin-left: var(--tamano-1);
+    transition: var(--tiempo-normal);
+    /* border-radius: var(--tamano-1); */
+}
+
+.submenu__opcion .menu__link:hover {
+    background: var(--gris-aaa);
+}
+
+/*
+
+.menu__opcion:nth-child(2), .menu__opcion:nth-child(6), .menu__opcion:nth-child(10){
+    background-color: var(--advertencia-claro);
+}
+
+.menu__opcion:nth-child(3), .menu__opcion:nth-child(7){
+    background-color: var(--ok-claro);
+}
+
+.menu__opcion:nth-child(4), .menu__opcion:nth-child(8){
+    background-color: var(--azul-claro);
+}
+
+.menu__opcion:nth-child(5), .menu__opcion:nth-child(9){
+    background-color: var(--error-claro);
+}
+*/
+
+
+.--inicio {
+    font-size: calc(var(--tamano-1) + var(--tamano-med));
+    padding: var(--tamano-2);
+    border-top-right-radius: var(--tamano-1);
+    border-top-left-radius: var(--tamano-1);
+}
+
+.--cerrar {
+    font-size: calc(var(--tamano-1) + var(--tamano-cuart));
+    padding: var(--tamano-1);
+    border-bottom-right-radius: var(--tamano-1);
+    border-bottom-left-radius: var(--tamano-1);
+    background-color: var(--error-primario);
+    color: var(--blanco);
+}
+
+.--cerrar:hover {
+    background-color: var(--error-claro);
+}
+
+
+.area-trabajo {
+    width: 85%;
+    height: 100%;
+    /* background-color: var(--blanco); */
+    border-radius: var(--tamano-1);
+    font-family: var(--tipografia);
+    position: relative;
+}
+
+.bloque {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--tamano-2);
+    backdrop-filter: blur(var(--tamano-cuart));
+    border-radius: inherit;
+    position: relative;
+    padding: var(--tamano-med);
+    
+}
+.--padding-extra{
+    padding: var(--tamano-2);
+}
+
+.--blanco {
+    backdrop-filter: unset;
+    background-color: var(--blanco);
+}
+
+.--orientado-izquierda{
+    align-items: start;
+    justify-content: start;
+    padding: var(--tamano-1);
+}
+
+/* SECCIÓN DE BOTONES */
+
+.contenedor-botones {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--tamano-1);
+    margin-top: var(--tamano-2);
+
+}
+
+.boton {
+    display: inline-block;
+    font-size: var(--tamano-1);
+    text-decoration: none;
+    color: var(--blanco);
+    padding: var(--tamano-1);
+    border-radius: var(--tamano-med);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-weight: normal;
+    font-family: var(--tipografia);
+    background-color: inherit;
+    transition: var(--tiempo-normal);
+
+}
+
+ .--aceptar {
+    background-color: var(--ok-claro);
+    color: var(--blanco);
+} 
+.--aceptar:hover{
+    background-color: var(--ok-primario);
+}
+
+.--cancelar {
+    background-color: var(--error-claro);
+    color: var(--blanco);
+}
+.--cancelar:hover {
+    background-color: var(--error-primario);
+}
+
+.--opcion1 {
+    background-color: var(--azul-claro);
+    color: var(--blanco);
+}
+
+.--opcion1:hover {
+    background-color: var(--azul-primario);
+}
+
+
+
+
+/* COMIENZAN LOS ESTILOS DE TODAS LAS PÁGINAS */
+/* principal_administrador.php */
+
+.bloque-bienvenida{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--tamano-2);
+    color: var(--negro);
+
+    border-radius: inherit;
+    
+    background-color: var(--blanco);
+}
+
+.bloque-bienvenida h1 {
+    font-family: var(--tipografia);
+    font-size: var(--tamano-3);
+}
+
+.bloque-bienvenida p {
+    font-family: var(--tipografia);
+    font-size: calc(var(--tamano-1) + var(--tamano-med)); 
+    text-align: justify;
+    width: 80%;
+}
+
+.bloque-bienvenida .icono {
+    font-size: var(--tamano-4);
+    width: 100%;
+    margin-top: var(--tamano-1);
+    text-align: center;
+}
+
+
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: center;
+    width: fit-content;
+    height: fit-content;
+
+    padding: var(--tamano-3) var(--tamano-4);
+    border-radius: var(--tamano-1);
+    gap: var(--tamano-cuart);
+
+}
+
+.formulario p {
+    font-weight: bold;
+    margin-bottom: var(--tamano-med);
+}
+
+.formulario input:not([type="submit"]), .formulario select {
+    padding: var(--tamano-cuart);
+    border-radius: var(--tamano-med);
+    border: var(--borde-normal);
+  }
+
+  .formulario select {
+    cursor: pointer;
+  }
+
+
+
+
+
+/* altas_usuarios.php */
+
+.--altas {
+    background-color: var(--verde-claro);
+}
+
+.--usuarios input[name="nombre_usuario"], .--usuarios input[name="modificar_nombre"] {
+    width: 60%;
+}
+
+.--usuarios input[name="telefono_usuario"], .--usuarios input[name="modificar_telefono"] {
+    width: 60%;
+}
+
+.--usuarios input[name="email_usuario"], .--usuarios input[name="modificar_email"] {
+    width: 70%;
+}
+.--usuarios select[name="tipo_usuario"], .--usuarios select[name="modificar_tipo"], .--usuarios select[name="modificar_status"] {
+    width: fit-content;
+}
+
+.--usuarios input[name="login_usuario"], .--usuarios input[name="modificar_login"] {
+    width: 50%;
+}
+
+.--usuarios input[name="password_usuario"], .--usuarios input[name="modificar_password"] {
+    width: 60%;
+}
+
+
+/* bajas_usuarios.php */
+
+.--bajas {
+    background-color: var(--rojo-claro);
+}
+
+/* modificaciones_usuarios.php */
+
+.--modificaciones {
+    background-color: var(--advertencia-claro);
+}
+/* consultas_usuarios.php */
+
+.consultas {
+    width: fit-content;
+    font-size: calc(var(--tamano-med) + var(--tamano-cuart));
+
+    border: var(--borde-normal);
+    border-collapse: collapse;
+}
+
+.consultas th {
+    width: fit-content;
+    text-align: left;
+    padding-right: var(--tamano-med);
+    padding-left: var(--tamano-cuart);
+    border: var(--borde-normal);
+    background-color: var(--azul-primario);
+    
+}
+.consultas tr{
+    width: fit-content;
+}
+.consultas tr:nth-child(even){
+    background-color: var(--gris-ddd);
+}
+
+.consultas tr:hover{
+    background-color: var(--gris-aaa);
+}
+
+.consultas td {
+    width: fit-content;
+    padding-right: var(--tamano-med);
+    padding-left: var(--tamano-cuart);
+    border: var(--borde-normal);
+}
+
+.consultas a {
+    display: inline-block;
+    width: 100%;
+}
+
+
+/* .--arbol a {
+    display: inline;
+} */
+
+
+
+.--arbol td {
+    padding: var(--tamano-med);
+}
+
+.--arbol a {
+    text-decoration: none;
+}
+
+.--arbol th {
+    text-align: center;
+    padding: var(--tamano-med);
+    font-size: var(--tamano-1);
+}
+
+.centrar-d{
+    text-align: center;
+}
+
+
+.--mas-grande {
+    font-size: var(--tamano-1);
+}
+
+.--mas-grande td {
+    padding-top: var(--tamano-med);
+    padding-bottom: var(--tamano-med);
+}
+
+/* altas_socios.php */
+
+.--socios input[name="telefono_usuario"], .--socios input[name="password_usuario"], .--socios input[name="login_usuario"], .--socios input[name="fingerprint_usuario"], .--socios input[name="rfc"],
+.--socios input[name="modificar_nombre_usuario"], .--socios input[name="modificar_telefono_usuario"],.--socios input[name="modificar_login_usuario"], .--socios input[name="modificar_password_usuario"],
+.--socios input[name="modificar_cuenta_usuario"], .--socios input[name="modificar_rfc_usuario"]
+{
+    width: 40%;
+}
+
+.--socios input[type="date"]{
+    width: min-content;
+}
+
+.--socios input[name="idcard_usuario"], .--socios input[name="cuenta_usuario"] , .--socios input[name="modificar_email_usuario"],
+ .--socios input[name="modificar_idcard_usuario"], .--socios input[name="modificar_fingerprint_usuario"]
+{
+    width: 50%;
+}
+
+.--socios input[name="fecha_nac"],.--socios input[name="fecha_ing"], .--socios select{
+    width: min-content;
+}
+
+
+/* consultas_socios.php */
+.--consultas {
+    background-color: var(--azul-claro);
+}
+
+.--navegador{
+    position: sticky;
+    top: 0;
+    z-index: 11;
+    background-color: var(--gris-aaa);
+    padding: var(--tamano-2);
+    color: var(--blanco);
+    font-weight: bold;
+    border-radius: var(--tamano-1);
+}
+
+
+/*alta_planes.php*/
+
+.--planes input[name="nombre_plan"]{
+    width: fit-content;
+}
+.--planes input[name="costo_plan"], .--planes input[name='anualidad_plan']{
+    width: 50%;
+}
+
+.--planes input[name="cargo_plan"], .--planes input[name="cargo1_plan"],.--planes input[name="ausencia_plan"],.--planes input[name="ausenciac_plan"],.--planes input[name="ausenciac1_plan"]  {
+    width: 75%;
+} 
+
+/*consulta_planes.php*/
+
+.activo-verde{
+    background-color: var(--ok-claro);
+    color: var(--blanco);
+}
+.baja-rojo{
+    background-color: var(--error-claro);
+    color: var(--blanco);
+}
+
+/*rdeudores1.php*/
+
+.caja-opciones {
+    position: sticky;
+    top: var(--tamano-med);
+    left: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--tamano-med);
+
+}
+
+.--full-width {
+    width: 100%;
+}

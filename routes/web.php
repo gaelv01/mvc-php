@@ -15,9 +15,7 @@ use App\Controllers\AlumnoController;
 # Estas son las rutas.
 # Observa como se ejecutan.
 
-Route::get('/', function () {
-    return 'Hola mundo';
-});
+Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/alumnos', [AlumnoController::class, 'index']);
 Route::get('/alumnos/create', [AlumnoController::class, 'create']);
