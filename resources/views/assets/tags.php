@@ -71,13 +71,13 @@ function showMenu()
     <li class="menu__opcion"><a href="/alumnos" class="menu__link"><i class="fa-sharp fa-solid fa-graduation-cap" style="font-size: var(--tamano-1); padding-right: var(--tamano-med); color: gray;"></i>Alumnos</a>
         
     </li>
+	<li class="menu__opcion"><a href="/profesores" class="menu__link"><i class="fa-sharp fa-solid fa-chalkboard-user" style="font-size: var(--tamano-1); padding-right: var(--tamano-med); color: steelblue;"></i>Profesores</a>
+        
+    </li>
 	<li class="menu__opcion"><a href="/admin" class="menu__link"><i class="fa-sharp fa-solid fa-user-tie" style="font-size: var(--tamano-1); padding-right: var(--tamano-med); color: black;"></i>Administradores</a>
         
     </li>
-	<li class="menu__opcion"><a href="/materias" class="menu__link"><i class="fa-sharp fa-solid fa-book" style="font-size: var(--tamano-1); padding-right: var(--tamano-med); color: green;"></i>Materias</a>
-        
-    </li>
-
+	
 
 
 
