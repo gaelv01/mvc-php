@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-05-2024 a las 23:02:53
+-- Tiempo de generación: 29-05-2024 a las 07:43:14
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -24,21 +24,25 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `administrativos`
+-- Estructura de tabla para la tabla `administradores`
 --
 
-CREATE TABLE `administrativos` (
+CREATE TABLE `administradores` (
   `ID` int(11) NOT NULL,
   `Nombre` varchar(30) NOT NULL,
-  `Apellido` varchar(30) NOT NULL
+  `Apellido` varchar(30) NOT NULL,
+  `Cargo` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `administrativos`
+-- Volcado de datos para la tabla `administradores`
 --
 
-INSERT INTO `administrativos` (`ID`, `Nombre`, `Apellido`) VALUES
-(1, 'Edgar', 'Vivas');
+INSERT INTO `administradores` (`ID`, `Nombre`, `Apellido`, `Cargo`) VALUES
+(1, 'Edgar', 'Vivas', 'Administrador de sistemas'),
+(2, 'Gael', 'Vivas Nieto', 'Administrador de TICS'),
+(3, 'Ignacio', 'Vivas Nieto', 'Administrador de TI'),
+(8, 'Rogelio', 'Pereda', 'Subdirección');
 
 -- --------------------------------------------------------
 
@@ -62,7 +66,15 @@ CREATE TABLE `alumnos` (
 
 INSERT INTO `alumnos` (`ID`, `Nombre`, `Apellidos`, `Fecha_Nacimiento`, `Semestre`, `Carrera`, `IdGrupo`) VALUES
 (2000, 'Gael', 'Vivas Nieto', '2004-06-20', 2, 'Programación', 'TPROG-AMBI'),
-(2001, 'Saul', 'Zapata Perez', '2004-01-01', 2, 'Programación', 'TPROG-AMBI');
+(2001, 'Saul', 'Zapata Perez', '2004-01-01', 2, 'Programación', 'TPROG-AMBI'),
+(2003, 'Roman', 'Ortega Muñoz', '2000-01-01', 7, 'Programación', 'TPROG-AMBI'),
+(2004, 'Juan', 'Pacheco', '2004-02-20', 3, 'Programación', 'TPROG-AMBI'),
+(2005, 'Pedro', 'Sanchez', '2002-01-01', 3, 'Programación', 'TPROG-AMBI'),
+(2006, 'Juan ', 'Perez', '2000-02-02', 7, 'Programación', 'TPROG-AMBI'),
+(2007, 'Laura', 'Nieto', '2000-06-20', 7, 'Programación', 'TPROG-AMBI'),
+(2008, 'Ernesto', 'Villeda', '2003-02-02', 5, 'Programación', 'TPROG-AMBI'),
+(2009, 'Juan Manuel', 'Estrada', '2000-01-01', 7, 'Programación', 'TPROG-AMBI'),
+(2010, 'Ignacio', 'Vivas', '2008-02-03', 1, 'Programación', 'TPROG-AMBI');
 
 -- --------------------------------------------------------
 
@@ -92,9 +104,10 @@ INSERT INTO `calificaciones` (`Registro`, `ID_Alumno`, `ID_Materia`, `IdGrupo`, 
 --
 
 CREATE TABLE `grupos` (
-  `IdGrupo` varchar(50) NOT NULL,
-  `ID_Materia` int(11) NOT NULL,
-  `ID_Profesor` int(11) NOT NULL,
+  `ID` int(11) NOT NULL,
+  `IdGrupo` varchar(50) DEFAULT NULL,
+  `ID_Materia` int(11) DEFAULT NULL,
+  `ID_Profesor` int(11) DEFAULT NULL,
   `Semestre` smallint(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -102,8 +115,10 @@ CREATE TABLE `grupos` (
 -- Volcado de datos para la tabla `grupos`
 --
 
-INSERT INTO `grupos` (`IdGrupo`, `ID_Materia`, `ID_Profesor`, `Semestre`) VALUES
-('TPROG-AMBI', 2000, 1, 1);
+INSERT INTO `grupos` (`ID`, `IdGrupo`, `ID_Materia`, `ID_Profesor`, `Semestre`) VALUES
+(1, 'TMECA-AM', 2000, 1, 1),
+(2, 'TMECA-AMBI', 2000, 2, 1),
+(3, 'TPROG-AMBI', 2011, 2, 4);
 
 -- --------------------------------------------------------
 
@@ -122,7 +137,17 @@ CREATE TABLE `materias` (
 --
 
 INSERT INTO `materias` (`ID`, `Materia`, `Semestre`) VALUES
-(2000, 'TIC\'s', 1);
+(2000, 'TIC\'s', 2),
+(2002, 'Web Cliente', 4),
+(2003, 'Web Servidor', 4),
+(2004, 'Programación Orientada a Objetos', 3),
+(2005, 'Bases de Datos', 4),
+(2006, 'Electrónica Digital', 3),
+(2007, 'Español I', 1),
+(2008, 'Ética', 3),
+(2009, 'Filosofía', 6),
+(2010, 'Programación CNC', 4),
+(2011, 'Lógica', 1);
 
 -- --------------------------------------------------------
 
@@ -143,7 +168,9 @@ CREATE TABLE `profesores` (
 --
 
 INSERT INTO `profesores` (`ID`, `Nombre`, `Apellidos`, `Fecha_Nacimiento`, `IdGrupo`) VALUES
-(1, 'Juan Manuel', 'Estrada', '2024-05-21', 'TPROG-AMBI');
+(1, 'Juan Manuel', 'Estrada', '2024-05-21', 'TPROG-AMBI'),
+(2, 'Nancy A', 'Oviedo Rivera', '1980-01-01', 'TPROG-AMBI'),
+(4, 'Pedro', 'Gutiérrez Nájera', '1990-01-01', 'TPROG-AMBI');
 
 -- --------------------------------------------------------
 
@@ -152,7 +179,9 @@ INSERT INTO `profesores` (`ID`, `Nombre`, `Apellidos`, `Fecha_Nacimiento`, `IdGr
 --
 
 CREATE TABLE `usuarios` (
-  `IdUsuario` varchar(30) NOT NULL,
+  `ID` int(11) NOT NULL,
+  `Nombre` varchar(30) NOT NULL,
+  `Login` varchar(30) NOT NULL,
   `Password` varchar(30) NOT NULL,
   `Tipo` char(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -161,17 +190,17 @@ CREATE TABLE `usuarios` (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`IdUsuario`, `Password`, `Tipo`) VALUES
-('315297', 'gael123', '1');
+INSERT INTO `usuarios` (`ID`, `Nombre`, `Login`, `Password`, `Tipo`) VALUES
+(1, 'Gael Vivas Nieto', '315297', 'gael123', '1');
 
 --
 -- Índices para tablas volcadas
 --
 
 --
--- Indices de la tabla `administrativos`
+-- Indices de la tabla `administradores`
 --
-ALTER TABLE `administrativos`
+ALTER TABLE `administradores`
   ADD PRIMARY KEY (`ID`);
 
 --
@@ -193,9 +222,10 @@ ALTER TABLE `calificaciones`
 -- Indices de la tabla `grupos`
 --
 ALTER TABLE `grupos`
-  ADD PRIMARY KEY (`IdGrupo`),
+  ADD PRIMARY KEY (`ID`),
   ADD KEY `FK_Profesor` (`ID_Profesor`),
-  ADD KEY `FK_Materia` (`ID_Materia`);
+  ADD KEY `FK_Materia` (`ID_Materia`),
+  ADD KEY `FK_Grupo` (`IdGrupo`);
 
 --
 -- Indices de la tabla `materias`
@@ -211,20 +241,26 @@ ALTER TABLE `profesores`
   ADD KEY `FK_Grupos` (`IdGrupo`);
 
 --
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT de la tabla `administrativos`
+-- AUTO_INCREMENT de la tabla `administradores`
 --
-ALTER TABLE `administrativos`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `administradores`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `alumnos`
 --
 ALTER TABLE `alumnos`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2003;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2011;
 
 --
 -- AUTO_INCREMENT de la tabla `calificaciones`
@@ -233,16 +269,28 @@ ALTER TABLE `calificaciones`
   MODIFY `Registro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT de la tabla `grupos`
+--
+ALTER TABLE `grupos`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT de la tabla `materias`
 --
 ALTER TABLE `materias`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2001;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2012;
 
 --
 -- AUTO_INCREMENT de la tabla `profesores`
 --
 ALTER TABLE `profesores`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas
