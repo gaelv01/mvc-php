@@ -83,6 +83,9 @@ function showMenu()
 	<li class="menu__opcion"><a href="/usuarios" class="menu__link"><i class="fa-sharp fa-solid fa-user" style="font-size: var(--tamano-1); padding-right: var(--tamano-med); color: black;"></i>Usuarios</a>
         
     </li>
+	<li class="menu__opcion"><a href="/calificaciones" class="menu__link"><i class="fa-sharp fa-solid fa-table" style="font-size: var(--tamano-1); padding-right: var(--tamano-med); color: blue;"></i>Calificaciones</a>
+        
+    </li>
 	<li class="menu__opcion"><a href="/grupos" class="menu__link"><i class="fa-sharp fa-solid fa-user-group" style="font-size: var(--tamano-1); padding-right: var(--tamano-med); color: red;"></i>Grupos</a>
         
     </li>

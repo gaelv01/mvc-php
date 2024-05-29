@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Alumno;
+use App\Models\Grupo;
 
 class AlumnoController extends Controller
 {
@@ -19,7 +20,9 @@ class AlumnoController extends Controller
     }
     public function create()
     {
-        return $this->view('alumnos.create');
+        $modelGrupo = new Grupo();
+        $grupos = $modelGrupo->select('IdGrupo')->groupBy('IdGrupo')->get();
+        return $this->view('alumnos.create', compact('grupos'));
     }
     public function store()
     {

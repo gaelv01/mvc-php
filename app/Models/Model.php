@@ -17,6 +17,7 @@ class Model
     protected $select = '*';
     protected $where = '', $values = [];
     protected $orderBy = '';
+    protected $groupBy = '';
 
     protected $table;
 
@@ -92,6 +93,16 @@ class Model
         return $this;
     }
 
+    public function groupBy($column)
+    {
+        if ($this->groupBy) {
+            $this->groupBy .= ", {$column}";
+        } else {
+            $this->groupBy = $column;
+        }
+        return $this;
+    }
+
     # Funciones de formato de resultados
 
     public function first()
@@ -106,6 +117,10 @@ class Model
 
             if ($this->orderBy) {
                 $sql .= " ORDER BY {$this->orderBy}";
+            }
+
+            if ($this->groupBy) {
+                $sql .= " GROUP BY {$this->groupBy}";
             }
 
             $this->query($sql, $this->values);
@@ -125,6 +140,10 @@ class Model
 
             if ($this->orderBy) {
                 $sql .= " ORDER BY {$this->orderBy}";
+            }
+
+            if ($this->groupBy) {
+                $sql .= " GROUP BY {$this->groupBy}";
             }
 
             $this->query($sql, $this->values);
@@ -148,6 +167,11 @@ class Model
             if ($this->orderBy) {
                 $sql .= " ORDER BY {$this->orderBy}";
             }
+
+            if ($this->groupBy) {
+                $sql .= " GROUP BY {$this->groupBy}";
+            }
+            
             $sql .= " LIMIT " . (($page - 1) * $cant) . ", {$cant}";
             $data = $this->query($sql, $this->values)->get();
         }

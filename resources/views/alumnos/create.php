@@ -29,7 +29,13 @@ openHTML("Crear alumno");
             </tr>
             <tr>
                 <td>Grupo:</td>
-                <td><input type="text" name="IdGrupo" placeholder="Grupo"></td>
+                <td>
+                    <select name="IdGrupo">
+                        <?php foreach ($grupos as $grupo) : ?>
+                            <option value="<?= $grupo['IdGrupo'] ?>"><?= $grupo['IdGrupo'] ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </td>
             </tr>
         </table>
         <div class="contenedor-botones">
