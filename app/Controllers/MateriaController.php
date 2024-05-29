@@ -9,9 +9,9 @@ class MateriaController extends Controller
         $model = new Materia();
 
         if (isset($_GET['search'])) {
-            $materias = $model->where('Materia', 'like', '%' . $_GET['search'] . '%')->paginate(1);
+            $materias = $model->where('Materia', 'like', '%' . $_GET['search'] . '%')->get();
         } else {
-            $materias = $model->paginate(10);
+            $materias = $model->all();
         }
         return $this->view('materia.index', compact('materias'));
     }

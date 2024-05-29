@@ -18,7 +18,7 @@ openHTML("Listado de materias");
             <th>Materia</th>
             <th>Semestre</th>
         </tr>
-        <?php foreach ($materias['data'] as $materia) : ?>
+        <?php foreach ($materias as $materia) : ?>
             <tr>
                 <td><?= $materia['ID'] ?></td>
                 <td><a href="/materias/<?= $materia['ID'] ?>" class="text-blue-500 hover:text-blue-700"><?= $materia['Materia'] ?></a></td>
@@ -29,10 +29,6 @@ openHTML("Listado de materias");
 
     <a href="/materias/create" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Crear materia</a>
 
-    <?php
-    $paginate = 'materias';
-    require_once '../resources/views/assets/pagination.php';
-    ?>
 
 </div>
 <?php closeHTML() ?>

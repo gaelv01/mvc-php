@@ -11,9 +11,9 @@ class AlumnoController extends Controller
         $model = new Alumno();
 
         if (isset($_GET['search'])) {
-            $alumnos = $model->where('Nombre', 'like', '%' . $_GET['search'] . '%')->paginate(1);
+            $alumnos = $model->where('Nombre', 'like', '%' . $_GET['search'] . '%')->get();
         } else {
-            $alumnos = $model->paginate(10);
+            $alumnos = $model->all();
         }
         return $this->view('alumnos.index', compact('alumnos'));
     }

@@ -21,7 +21,7 @@ openHTML("Alumnos");
                 <th>Carrera</th>
                 <th>Grupo</th>
             </tr>
-            <?php foreach ($alumnos['data'] as $alumno) : ?>
+            <?php foreach ($alumnos as $alumno) : ?>
                 <tr>
                     <td><a href="/alumnos/<?= $alumno['ID'] ?>" class="text-blue-500 hover:text-blue-700"><?= $alumno['Nombre'] ?></a></td>
                     <td><?= $alumno['Apellidos'] ?></td>
@@ -35,10 +35,6 @@ openHTML("Alumnos");
 
         <a href="/alumnos/create" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Crear alumno</a>
 
-        <?php
-        $paginate = 'alumnos';
-        require_once '../resources/views/assets/pagination.php';
-        ?>
 
     </div>
 <?php

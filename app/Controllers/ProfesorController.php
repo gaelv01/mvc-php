@@ -10,9 +10,9 @@ class ProfesorController extends Controller
     {
         $model = new Profesor();
         if (isset($_GET['search'])) {
-            $profesores = $model->where('Nombre', 'like', '%' . $_GET['search'] . '%')->get(1);
+            $profesores = $model->where('Nombre', 'like', '%' . $_GET['search'] . '%')->get();
         } else {
-            $profesores = $model->get();
+            $profesores = $model->all();
         }
         return $this->view('profesores.index', compact('profesores'));
     }

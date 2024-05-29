@@ -10,9 +10,9 @@ class AdministradorController extends Controller
     {
         $model = new Administrador();
         if (isset($_GET['search'])) {
-            $administradores = $model->where('Nombre', 'like', '%' . $_GET['search'] . '%')->paginate(1);
+            $administradores = $model->where('Nombre', 'like', '%' . $_GET['search'] . '%')->get();
         } else {
-            $administradores = $model->paginate(10);
+            $administradores = $model->all();
         }
         return $this->view('administrador.index', compact('administradores'));
     }

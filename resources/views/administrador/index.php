@@ -22,7 +22,7 @@ openHTML('Listado de administradores');
             <th>Cargo</th>
 
         </tr>
-        <?php foreach ($administradores['data'] as $administrador) : ?>
+        <?php foreach ($administradores as $administrador) : ?>
             <tr>
                 <td><a href="/admin/<?= $administrador['ID'] ?>"  class="text-blue-500 hover:text-blue-700"><?= $administrador['Nombre'] ?></a></td>
                 <td><?= $administrador['Apellido'] ?></td>
@@ -33,10 +33,7 @@ openHTML('Listado de administradores');
 
     <a href="/admin/create" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Crear administrador</a>
 
-    <?php
-    $paginate = 'administradores';
-    require_once '../resources/views/assets/pagination.php';
-    ?>
+    
 
 </div>
 
