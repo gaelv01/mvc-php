@@ -47,4 +47,12 @@ class Controller
     {
         header("Location: $route");
     }
+
+    public function checkAuth()
+    {
+        session_start();
+        if (!isset($_SESSION['Nombre'])) {
+            return $this->redirect('/login');
+        }
+    }
 }

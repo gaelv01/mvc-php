@@ -6,6 +6,10 @@ use App\Models\Usuario;
 
 class UsuarioController extends Controller
 {
+    public function __construct()
+    {
+        $this->checkAuth();
+    }
     public function index()
     {
         $model = new Usuario();

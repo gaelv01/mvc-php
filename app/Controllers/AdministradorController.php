@@ -6,6 +6,11 @@ use App\Models\Administrador;
 
 class AdministradorController extends Controller
 {
+    public function __construct()
+    {
+        $this->checkAuth();
+    }
+
     public function index()
     {
         $model = new Administrador();

@@ -3,9 +3,10 @@
 use Lib\Route;
 
 use App\Controllers\HomeController;
-use App\Controllers\AlumnoController;
 
-Route::get('/', [HomeController::class, 'index']);
+
+Route::get('/', [HomeController::class, 'auth']);
+Route::get('/home', [HomeController::class, 'index']);
 
 include 'alumnos_routes.php';
 include 'administradores_routes.php';
@@ -14,5 +15,6 @@ include 'profesores_routes.php';
 include 'usuarios_routes.php';
 include 'grupos_routes.php';
 include 'calificaciones_routes.php';
+include 'auth_routes.php';
 
 Route::dispatch();

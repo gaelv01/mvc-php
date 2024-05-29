@@ -4,6 +4,10 @@ use App\Models\Materia;
 
 class MateriaController extends Controller
 {
+    public function __construct()
+    {
+        $this->checkAuth();
+    }
     public function index()
     {
         $model = new Materia();

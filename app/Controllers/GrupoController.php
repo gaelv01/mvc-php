@@ -8,6 +8,10 @@ use App\Models\Profesor;
 
 class GrupoController extends Controller
 {
+    public function __construct()
+    {
+        $this->checkAuth();
+    }
     public function index()
     {
         $modelGrupo = new Grupo();

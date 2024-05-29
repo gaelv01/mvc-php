@@ -125,6 +125,7 @@ class Model
 
             $this->query($sql, $this->values);
         }
+        
         return $this->query->fetch_assoc();
     }
 

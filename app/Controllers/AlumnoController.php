@@ -7,6 +7,10 @@ use App\Models\Grupo;
 
 class AlumnoController extends Controller
 {
+    public function __construct()
+    {
+        $this->checkAuth();
+    }
     public function index()
     {
         $model = new Alumno();

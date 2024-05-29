@@ -6,6 +6,10 @@ use App\Models\Profesor;
 
 class ProfesorController extends Controller
 {
+    public function __construct()
+    {
+        $this->checkAuth();
+    }
     public function index()
     {
         $model = new Profesor();
