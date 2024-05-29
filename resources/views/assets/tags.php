@@ -77,6 +77,10 @@ function showMenu()
 	<li class="menu__opcion"><a href="/admin" class="menu__link"><i class="fa-sharp fa-solid fa-user-tie" style="font-size: var(--tamano-1); padding-right: var(--tamano-med); color: black;"></i>Administradores</a>
         
     </li>
+	<li class="menu__opcion"><a href="/usuarios" class="menu__link"><i class="fa-sharp fa-solid fa-user" style="font-size: var(--tamano-1); padding-right: var(--tamano-med); color: black;"></i>Usuarios</a>
+        
+    </li>
+	
 	
 
 
