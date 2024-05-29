@@ -19,8 +19,8 @@
         <?php foreach ($grupos as $grupo) : ?>
             <tr>
                 <td><a href="/grupos/<?= $grupo['ID'] ?>" class="text-blue-500 hover:text-blue-700"><?= $grupo['IdGrupo']?></a></td>
-                <td><?= $grupo['ID_Materia'] ?></td>
-                <td><?= $grupo['ID_Profesor'] ?></td>
+                <td><?= $grupo['Nombre_Materia'] ?></td>
+                <td><?= $grupo['Nombre_Profesor'] ?></td>
                 <td><?= $grupo['Semestre'] ?></td>
             </tr>
         <?php endforeach; ?>

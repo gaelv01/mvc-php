@@ -12,11 +12,23 @@ openHTML("Crear grupo");
             </tr>
             <tr>
                 <td>Materia:</td>
-                <td><input type="text" name="ID_Materia" placeholder="Materia"></td>
+                <td>
+                    <select name="ID_Materia">
+                        <?php foreach ($data['materias'] as $materia) : ?>
+                            <option value="<?= $materia['ID'] ?>"><?= $materia['Materia'] ?></option>
+                        <?php endforeach; ?>    
+                    </select>
+                </td>
             </tr>
             <tr>
                 <td>Profesor:</td>
-                <td><input type="text" name="ID_Profesor" placeholder="Profesor"></td>
+                <td>
+                    <select name="ID_Profesor">
+                        <?php foreach ($data['profesores'] as $profesor) : ?>
+                            <option value="<?= $profesor['ID'] ?>"><?= $profesor['Nombre'].' '.$profesor['Apellidos'] ?></option>
+                        <?php endforeach; ?>    
+                    </select>
+                </td>
             </tr>
             <tr>
                 <td>Semestre:</td>

@@ -8,15 +8,27 @@
         <table>
             <tr>
                 <td>Grupo:</td>
-                <td><input type="text" name="IdGrupo" value="<?= $grupo['IdGrupo'] ?>"></td>
+                <td><input type="text" name="IdGrupo" value="<?= $data['grupo']['IdGrupo'] ?>"></td>
             </tr>
             <tr>
                 <td>Materia:</td>
-                <td><input type="text" name="ID_Materia" value="<?= $grupo['ID_Materia'] ?>"></td>
+                <td>
+                    <select name="ID_Materia">
+                        <?php foreach ($data['materias'] as $materia) : ?>
+                            <option value="<?= $materia['ID'] ?>" <?= $materia['ID'] == $data['grupo']['ID_Materia'] ? 'selected' : '' ?>><?= $materia['Materia'] ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </td>
             </tr>
             <tr>
                 <td>Profesor:</td>
-                <td><input type="text" name="ID_Profesor" value="<?= $grupo['ID_Profesor'] ?>"></td>
+                <td>
+                    <select name="ID_Profesor">
+                        <?php foreach ($data['profesores'] as $profesor) : ?>
+                            <option value="<?= $profesor['ID'] ?>" <?= $profesor['ID'] == $data['grupo']['ID_Profesor'] ? 'selected' : '' ?>><?= $profesor['Nombre'] . ' ' . $profesor['Apellidos'] ?></option>
+                        <?php endforeach; ?>
+                    </select> 
+                </td>
             </tr>
             <tr>
                 <td>Semestre:</td>
