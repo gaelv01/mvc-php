@@ -94,6 +94,27 @@ function showMenu()
     <li class="menu__opcion"><a href="/logout" class="menu__link --cerrar">Cerrar sesión</a></li>
 	</ul>';
 	}
+	if ($_SESSION['Tipo'] == 'P') {
+		echo '<ul class="menu__lista-princ">
+	<li class="menu__opcion"><a href="/home" class="menu__link --inicio"><i class="fa-sharp fa-solid fa-home" style="font-size: var(--tamano-2); padding-right: var(--tamano-med);"></i>Inicio</a></li>
+
+	<li class="menu__opcion"><a href="/calificaciones" class="menu__link"><i class="fa-sharp fa-solid fa-table" style="font-size: var(--tamano-1); padding-right: var(--tamano-med); color: gray;"></i>Calificaciones</a>
+		
+	</li>	
+	<li class="menu__opcion"><a href="/logout" class="menu__link --cerrar">Cerrar sesión</a></li>
+	</ul>';
+	}
+
+	if ($_SESSION['Tipo'] == 'A') {
+		echo '<ul class="menu__lista-princ">
+	<li class="menu__opcion"><a href="/home" class="menu__link --inicio"><i class="fa-sharp fa-solid fa-home" style="font-size: var(--tamano-2); padding-right: var(--tamano-med);"></i>Inicio</a></li>
+
+	<li class="menu__opcion"><a href="/calificaciones" class="menu__link"><i class="fa-sharp fa-solid fa-graduation-cap" style="font-size: var(--tamano-1); padding-right: var(--tamano-med); color: gray;"></i>Ver calificaciones</a>
+		
+	</li>	
+	<li class="menu__opcion"><a href="/logout" class="menu__link --cerrar">Cerrar sesión</a></li>
+	</ul>';
+	}
 }
 
 

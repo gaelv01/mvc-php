@@ -62,7 +62,8 @@
 
 /*FONDO TEMPORAL*/
 body{
-    background-color: black !important;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(32,143,78,1) 35%, rgba(232,108,37,1) 77%); 
 }
 
 
