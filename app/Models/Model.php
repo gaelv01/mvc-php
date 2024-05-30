@@ -83,6 +83,40 @@ class Model
         return $this;
     }
 
+    public function whereIn($column, $values)
+    {
+        $values = implode(', ', array_map(function ($value) {
+            return "'{$value}'";
+        }, $values));
+
+        if ($this->where) {
+            $this->where .= " AND {$column} IN ({$values})";
+        } else {
+            $this->where = "{$column} IN ({$values})";
+        }
+
+        return $this;
+    }
+
+    public function orWhere($column, $operator, $value = null)
+    {
+        if ($value === null) {
+            $value = $operator;
+            $operator = '=';
+        }
+
+        if ($this->where) {
+            $this->where .= " OR {$column} {$operator} ?";
+        } else {
+            $this->where = "{$column} {$operator} ?";
+        }
+
+        $this->values[] = $value;
+
+        return $this;
+    }
+
+
     public function orderBy($column, $order = 'ASC')
     {
         if ($this->orderBy) {
@@ -216,12 +250,13 @@ class Model
 
     public function create($data)
     {
-        $columns = array_keys($data);
-        $columns = implode(', ', $columns);
 
+        // var_dump($data);
+        $columns = array_keys($data);
+        // var_dump($columns);
+        $columns = implode(', ', $columns);
         $values = array_values($data);
         $sql = "INSERT INTO {$this->table} ({$columns}) VALUES (" . str_repeat('?,', count($values) - 1) . "?)";
-
         $this->query($sql, $values);
 
         $insert_id = $this->connection->insert_id;

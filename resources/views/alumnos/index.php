@@ -14,6 +14,7 @@ openHTML("Alumnos");
         </form>
         <table class="consultas --mas-grande">
             <tr>
+                <th>Expediente</th>
                 <th>Nombre</th>
                 <th>Apellidos</th>
                 <th>Fecha de nacimiento</th>
@@ -23,6 +24,7 @@ openHTML("Alumnos");
             </tr>
             <?php foreach ($alumnos as $alumno) : ?>
                 <tr>
+                    <td><?= $alumno['ID'] ?></td>
                     <td><a href="/alumnos/<?= $alumno['ID'] ?>" class="text-blue-500 hover:text-blue-700"><?= $alumno['Nombre'] ?></a></td>
                     <td><?= $alumno['Apellidos'] ?></td>
                     <td><?= $alumno['Fecha_Nacimiento'] ?></td>
