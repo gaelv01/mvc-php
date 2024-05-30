@@ -17,6 +17,10 @@ class CalificacionController extends Controller
     public function index()
     {
 
+        if ($_SESSION['Tipo'] == 'A') {
+            return $this->redirect('/calificaciones/' . $_SESSION['Login']);
+        }
+
         $modelAlumno = new Alumno();
 
         if (isset($_GET['search'])) {

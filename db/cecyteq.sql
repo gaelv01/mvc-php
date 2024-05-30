@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-05-2024 a las 21:05:50
+-- Tiempo de generación: 30-05-2024 a las 17:15:29
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -75,7 +75,11 @@ INSERT INTO `alumnos` (`ID`, `Nombre`, `Apellidos`, `Fecha_Nacimiento`, `Semestr
 (2008, 'Ernesto', 'Villeda', '2003-02-02', 5, 'Programación', 'TPROG-AMBI'),
 (2009, 'Juan Manuel', 'Estrada', '2000-01-01', 7, 'Programación', 'TPROG-AMBI'),
 (2010, 'Ignacio', 'Vivas', '2008-02-03', 1, 'Programación', 'TPROG-AMBI'),
-(2011, 'Benito', 'Juárez Mendez', '2004-05-29', 5, 'Mecatrónica', 'TMECA-AMBI');
+(2011, 'Benito', 'Juárez Mendez', '2004-05-29', 5, 'Mecatrónica', 'TMECA-AMBI'),
+(2012, 'Santiago', 'Nieto Barragán', '2004-01-20', 3, 'Mecatrónica', 'TMECA-AMBI'),
+(2013, 'Francisco', 'Pérez Ramírez', '2005-01-01', 1, 'Mecatrónica', 'TMECA-AMBI'),
+(2014, 'Celia', 'Mercado Sánchez', '2002-09-09', 5, 'Mecatrónica', 'TMECA-AMBI'),
+(2015, 'Juan Luis', 'Pérez', '0000-00-00', 3, 'Programación', 'TMECA-AMBI');
 
 -- --------------------------------------------------------
 
@@ -84,7 +88,7 @@ INSERT INTO `alumnos` (`ID`, `Nombre`, `Apellidos`, `Fecha_Nacimiento`, `Semestr
 --
 
 CREATE TABLE `calificaciones` (
-  `Registro` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `ID_Alumno` int(11) DEFAULT NULL,
   `ID_Materia` int(11) DEFAULT NULL,
   `IdGrupo` varchar(50) DEFAULT NULL,
@@ -95,9 +99,20 @@ CREATE TABLE `calificaciones` (
 -- Volcado de datos para la tabla `calificaciones`
 --
 
-INSERT INTO `calificaciones` (`Registro`, `ID_Alumno`, `ID_Materia`, `IdGrupo`, `Calificacion`) VALUES
-(1, 2000, 2000, 'TPROG-AMBI', 10),
-(5, 2000, 2002, 'TPROG-AMBI', 10);
+INSERT INTO `calificaciones` (`id`, `ID_Alumno`, `ID_Materia`, `IdGrupo`, `Calificacion`) VALUES
+(5, 2000, 2002, 'TPROG-AMBI', 10),
+(6, 2001, 2000, 'TPROG-AMBI', 10),
+(7, 2000, 2005, 'TPROG-AMBI', 10),
+(9, 2000, 2008, 'TPROG-AMBI', 9),
+(10, 2000, 2010, 'TPROG-AMBI', 8),
+(11, 2001, 2005, 'TPROG-AMBI', 8),
+(23, 2001, 2007, 'TPROG-AMBI', 10),
+(24, 2001, 2004, 'TPROG-AMBI', 9),
+(25, 2011, 2007, 'TMECA-AMBI', 10),
+(26, 2011, 2006, 'TMECA-AMBI', 8),
+(27, 2014, 2010, 'TMECA-AMBI', 8),
+(28, 2014, 2009, 'TMECA-AMBI', 10),
+(29, 2015, 2007, 'TMECA-AMBI', 10);
 
 -- --------------------------------------------------------
 
@@ -194,7 +209,9 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`ID`, `Nombre`, `Login`, `Password`, `Tipo`) VALUES
-(1, 'Gael Vivas Nieto', '315297', 'gael123', '1');
+(1, 'Gael Vivas Nieto', '315297', 'gael123', 'D'),
+(3, 'Juan Luis Pérez', '2015', 'jluis', 'A'),
+(4, 'Juan Manuel Estrada', '20001', 'jestrada', 'P');
 
 --
 -- Índices para tablas volcadas
@@ -217,7 +234,7 @@ ALTER TABLE `alumnos`
 -- Indices de la tabla `calificaciones`
 --
 ALTER TABLE `calificaciones`
-  ADD PRIMARY KEY (`Registro`),
+  ADD PRIMARY KEY (`id`) USING BTREE,
   ADD KEY `FK_Alumno` (`ID_Alumno`),
   ADD KEY `FK_Materias` (`ID_Materia`),
   ADD KEY `IdGrupo` (`IdGrupo`);
@@ -264,13 +281,13 @@ ALTER TABLE `administradores`
 -- AUTO_INCREMENT de la tabla `alumnos`
 --
 ALTER TABLE `alumnos`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2012;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2016;
 
 --
 -- AUTO_INCREMENT de la tabla `calificaciones`
 --
 ALTER TABLE `calificaciones`
-  MODIFY `Registro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT de la tabla `grupos`
@@ -294,7 +311,7 @@ ALTER TABLE `profesores`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restricciones para tablas volcadas

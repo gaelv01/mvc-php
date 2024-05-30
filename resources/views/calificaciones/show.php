@@ -15,8 +15,13 @@
             </tr>
         <?php endforeach; ?>
     </table>
-    <a href="/calificaciones/<?= $data['id'] ?>/create" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Agregar calificación</a>
-    <a href="/calificaciones" class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">Volver</a>
+    <?php if ($_SESSION['Tipo'] == 'A') : ?>
+        <a href="/home" class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">Volver</a>
+    <?php else : ?>
+        <a href="/calificaciones/<?= $data['id'] ?>/create" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Agregar calificación</a>
+        <a href="/calificaciones" class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">Volver</a>
+    <?php endif; ?>
+    
 </div>
 <?php closeHtml(); ?>
 
