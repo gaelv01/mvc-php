@@ -5,45 +5,47 @@
     <meta charset='UTF-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>Iniciar sesión</title>
-    <script src='https://kit.fontawesome.com/cf7ee57364.js' crossorigin='anonymous'></script>
-    <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,600,0,0' />
-    <link rel='stylesheet' href='../css/style.css'>
+    <title>CECYTEQ</title>
+    <link rel='stylesheet' href='../assets/css/signin.css'>
+
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../assets/fontawesome/css/fontawesome.css">
+    <link rel="stylesheet" href="../assets/fontawesome/css/brands.css">
+    <link rel="stylesheet" href="../assets/fontawesome/css/solid.css">
+
 </head>
 
 <body onload='mostrarTiempo();'>
-    <div class='contenedorPrincipal'>
-        <header class="header">
-            <img src="../img/logo.png" alt="Logo" class="header_img">
-            <p class="header_p">Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro</p>
-        </header>
-        <main class="main --centered">
-        <div class='login-card'>
-            <div class='login-card-logo'>
-                <img src='../img/logo.png' alt='logo'>
-            </div>
-            <div class='login-card-header'>
-                <h1>Iniciar sesión</h1>
-                <div>Por favor, ingresa para usar la plataforma.</div>
-            </div>
-            <form class='login-card-form' method='post' action='/login'>
-                <div class='form-item'>
-                    <span class='form-item-icon material-symbols-rounded'>person</span>
-                    <input type='text' placeholder='Tu login' name='Login' 
-                    autofocus required>
-                </div>
-                <div class='form-item'>
-                    <span class='form-item-icon material-symbols-rounded'>lock</span>
-                    <input type='password' placeholder='Tu password' name='Password' required>
-                </div>
-                <button type='submit'>Entrar</button>
-            </form>
+<body class="text-center">
+  <main class="form-signin">
+    <form class="needs-validation" novalidate>
+      <img class="mb-4" src="../assets/img/logo.png" alt="logo" width="130">
+      <h1 class="h3 mb-3 fw-normal">¡Bienvenido!</h1>
+      <h2 class="h5 mb-3 fw-light">Inicia sesión</h2>
+  
+      <div class="form-floating mb-3">
+        <input name="Login" type="text" class="form-control" id="floatingInput" placeholder="Usuario" required>
+        <label for="floatingInput"> <i class="fa fa-user mx-2" aria-hidden="true"></i> Usuario</label>
+        <div class="invalid-feedback">
+          Por favor, ingresa un usuario válido.
         </div>
-        </main>
-        <footer class="footer">
-            <p>Felipe Industries, 2024</p>
-        </footer>
-    </div>
+      </div>
+      <div class="form-floating mb-3">
+        <input name="Password" type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
+        <label for="floatingPassword"> <i class="fa fa-lock mx-2" aria-hidden="true"></i> Password</label>
+        <div class="invalid-feedback">
+          Por favor, ingresa tu contraseña.
+        </div>
+      </div>
+  
+      <button class="mt-3 w-100 btn btn-lg btn-primary" type="submit">Iniciar</button>
+      <p class="mt-5 mb-3 text-muted">© Felipe Industries, 2024</p>
+    </form>
+  </main>
+
+    <script src="/assets/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="/assets/js/form_validation.js"></script>
+
 </body>
 </html>
 
